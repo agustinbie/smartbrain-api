@@ -11,6 +11,8 @@ import knex from "knex";  //knex para conectar el server con el database
  const db = knex({
   client: 'pg',  //seleccionar pg o mysql
   connection: {
+  	connectionString: process.env.DATABASE_URL,
+  	ssl: {rejectUnauthorized: false},
     host : process.env.DATABASE_HOST,
     port : 5432,  //postgres pgadmin 4
     user : process.env.DATABASE_USER,  //owner que sale en git bash al poner \d
