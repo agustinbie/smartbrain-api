@@ -11,11 +11,11 @@ import knex from "knex";  //knex para conectar el server con el database
  const db = knex({
   client: 'pg',  //seleccionar pg o mysql
   connection: {
-    host : '127.0.0.1',
+    host : process.env.DATABASE_HOST,
     port : 5432,  //postgres pgadmin 4
-    user : 'postgres',  //owner que sale en git bash al poner \d
-    password : 'test',  //contraseña del usuario postgres
-    database : 'smartbrain' 
+    user : process.env.DATABASE_USER,  //owner que sale en git bash al poner \d
+    password : process.env.DATABASE_PASS,  //contraseña del usuario postgres
+    database : process.env.DATABASE_DB 
   }
 });
 
